@@ -1,0 +1,170 @@
+🛡️ Log-Guard: Hybrid AI Log Classifier
+
+Bridging Rule-Based Precision with Semantic Intelligence
+
+📖 Overview
+
+Log-Guard is a hybrid log classification system designed to process and categorize system logs efficiently at scale.
+
+Traditional log monitoring systems rely either on:
+
+Regex-based rules (fast but rigid), or
+
+AI models (flexible but computationally expensive).
+
+Log-Guard combines the strengths of both approaches using a dual-layer hybrid pipeline:
+
+Regex Engine (The Guard) – Instantly detects predefined structured log patterns.
+
+AI Semantic Engine (The Brain) – Classifies semantically similar logs using sentence embeddings and machine learning when rules fail.
+
+This architecture ensures both high speed and semantic intelligence.
+
+🧠 Hybrid Classification Pipeline
+🔹 Layer 1: Regex Engine (Priority Matching)
+
+Identifies 14+ predefined log categories
+
+Covers common structured logs:
+
+Login Events
+
+Backup Operations
+
+Web Errors
+
+System Warnings
+
+Near 100% precision on known patterns
+
+Extremely fast and computationally lightweight
+
+If a log matches a known pattern, classification is immediate.
+
+🔹 Layer 2: AI Semantic Engine (Fallback Intelligence)
+
+If the log does not match any regex rule:
+
+The log text is converted into a 384-dimensional embedding vector using SBERT.
+
+The embedding is passed to a Logistic Regression classifier trained on semantic categories.
+
+The model predicts the most relevant category.
+
+This enables semantic understanding such as:
+
+“Database connection timed out”
+
+“DB refused connection”
+
+Both are recognized as the same intent.
+
+✨ Key Features
+
+✅ Dual-layer hybrid architecture
+
+✅ Semantic understanding using SBERT embeddings
+
+✅ Logistic Regression classifier for efficient inference
+
+✅ Real-time interactive dashboard using Streamlit
+
+✅ t-SNE visualization for semantic cluster mapping
+
+✅ Zero-shot fallback handling for unknown logs
+
+🛠️ Tech Stack
+Category	Tools
+Frontend	Streamlit
+Embeddings	Sentence-Transformers (all-MiniLM-L6-v2)
+Classifier	Scikit-Learn (Logistic Regression)
+Processing	Pandas, NumPy, Regex
+Visualization	Matplotlib, t-SNE
+Model Persistence	Joblib
+🚀 Installation & Usage
+1️⃣ Clone Repository
+git clone https://github.com/Muskan-hu/Log-classifier-.git
+cd Log-classifier-
+
+2️⃣ Create Virtual Environment
+python -m venv venv
+
+
+Activate environment:
+
+Windows:
+
+.\venv\Scripts\activate
+
+
+Mac/Linux:
+
+source venv/bin/activate
+
+3️⃣ Install Dependencies
+pip install -r requirements.txt
+
+4️⃣ Run the Streamlit Dashboard
+streamlit run app.py
+
+
+The application will launch in your browser for real-time log testing.
+
+📊 Model Performance
+
+Regex Coverage: ~85% of standard structured logs
+
+AI Confidence: >0.80 probability on semantic variations
+
+Fallback Handling: Maps unknown logs to “Other” or AI cluster category
+
+Efficient Inference: Lightweight Logistic Regression ensures fast prediction
+
+📁 Project Structure
+├── app.py              # Streamlit User Interface
+├── logic.py            # Classification & Prediction Engine
+├── model_lr.pkl        # Trained Logistic Regression Model
+├── requirements.txt    # Project Dependencies
+├── .gitignore          # Excluded files (venv, __pycache__)
+└── README.md           # Project Documentation
+
+🎯 Real-World Applications
+
+This system can be deployed in:
+
+DevOps monitoring pipelines
+
+Security Operations Centers (SOC)
+
+Cloud infrastructure monitoring
+
+Server log analytics systems
+
+Organizations that rely heavily on log monitoring systems include:
+
+Datadog
+
+Splunk
+
+Amazon Web Services
+
+📌 Why Hybrid Approach?
+Regex Only	AI Only	Hybrid (Log-Guard)
+Fast but rigid	Flexible but slower	Fast + Intelligent
+Breaks on variations	Computational cost	Balanced architecture
+
+The hybrid model ensures:
+
+High precision
+
+Low latency
+
+Semantic adaptability
+
+Production-ready scalability
+
+👩‍💻 Author
+
+Muskan Iyasmin
+Final Year Information Technology Student
+Project: Intelligent Log Analysis System
